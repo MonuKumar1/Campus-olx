@@ -5,6 +5,7 @@ import { PageLayout } from "../Components/PageLayout";
 import { ProfileData } from "../Components/ProfileData";
 import { callMsGraph } from "../graph";
 import Button from "react-bootstrap/Button";
+import Sell from "../Components/Sell/Sell"
 
 
 
@@ -28,11 +29,14 @@ const ProfileContent = () => {
     return (
         <>
             <h5 className="card-title">Welcome {accounts[0].name}</h5>
+            <h5 className="card-title">Welcome {accounts[0].username}</h5>
             {graphData ? 
                 <ProfileData graphData={graphData} />
                 :
                 <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
             }
+            <hr></hr>
+            <Sell/>
         </>
     );
 };
