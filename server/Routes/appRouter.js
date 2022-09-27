@@ -17,4 +17,4 @@ router.get("/api/get/images", getAllProducts);
 
 router.post("/api/check/seller", checkSeller);
 
-module.exports = router;  
+module.exports = router;
