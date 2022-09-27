@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
-
+app.use('/server/admin', routerAdminBro);
 // servinging react app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
@@ -24,23 +24,18 @@ InitiateMongoServer()
   db.on("error", console.error.bind(console, "connection error: "));
   if(db.readyState){
     console.log("connection was successful ");
-    app.use('/admin', routerAdminBro);
+    // app.use('/server/admin', routerAdminBro);
   }
     
 });
 
-<<<<<<< HEAD
-//check
-=======
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 
->>>>>>> f09bf7163ae8b119fd6bb0938eed8a905ee441b9
 
   
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
-    
   });
