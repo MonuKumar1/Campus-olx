@@ -15,10 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
 // servinging react app
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, '../client/build')));
+
 
 InitiateMongoServer()
 .then(()=>{
@@ -31,7 +29,15 @@ InitiateMongoServer()
     
 });
 
+<<<<<<< HEAD
 //check
+=======
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
+
+>>>>>>> f09bf7163ae8b119fd6bb0938eed8a905ee441b9
 
   
 app.listen(PORT, () => {
